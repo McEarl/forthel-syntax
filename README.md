@@ -60,7 +60,7 @@ Within each of the mentioned subdirectories you'll find a file called
 `header.md`. It contains information like title and author of the reference.
 Each other file contains the source of some chapter of the reference. To add new
 grammar rules to one of these files, you have to enclose it between ` ```nbnf`
-and ` ``` ` tags and follow the syntax rules of [NBNF][3], an extension of
+and ` ``` ` tags and follow the syntax rules of [NBNF][4], an extension of
 [BNF][6].
 
 After editing any of these files you can update the correspongind HTML version
@@ -75,6 +75,7 @@ the appropriate file in the `contents` directory.
 [1]: <https://htmlpreview.github.io/>
 [2]: <https://garrettgman.github.io/rmarkdown/authoring_pandoc_markdown.html>
 [3]: <https://github.com/McEarl/nbnf>
+[4]: <https://github.com/McEarl/nbnf#readme>
 [5]: <https://github.com/naproche/naproche/>
 [6]: <https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form> "Backus-Naur form"
 [7]: <https://isabelle.in.tum.de/index.html>
