@@ -510,11 +510,12 @@ _The following rule is adopted from [[2]](#references)._
              | <assumption>
              | <case>
              | <low-level theorem>
+             | <equality chain>
              | <instruction>
 ```
 
 ```nbnf
-<low-level theorem> = <low-level theorem head> <affirmation> [ <proof head> ] { <proof step> } <qed>
+<low-level theorem> = <low-level theorem head> ( <affirmation> | <equality chain> ) [ <proof head> ] { <proof step> } <qed>
 ```
 
 ```nbnf
@@ -531,6 +532,10 @@ _The following rule is adopted from [[2]](#references)._
 
 ```nbnf
 <affirmation> = [ <name> ] [ <then> ] <statement> [ <reference> ] "."
+```
+
+```nbnf
+<equality chain> = [ <name> ] <symbolic term> "." "=" <symbolic term> [ <reference> ] { "." "=" <symbolic term> [ <reference> ] } "."
 ```
 
 
