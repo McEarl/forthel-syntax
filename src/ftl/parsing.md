@@ -582,13 +582,12 @@ _The following rule is adopted from [[2]](#references)._
 ```
 
 ```nbnf
-<class-of term> = ( 'class' | 'classes' ) [ <variable> ] 'of' <notion>
+<class-of term> = ( 'class' | 'classes' | 'collection' | 'collections' ) [ <variable> ] 'of' [ 'all' ] <notion>
 ```
 
 ```nbnf
 <separation> = <term>
              | <term> 'in' ( <term> | <class term> | <class-of term> )
-             | <notion>
 ```
 
 

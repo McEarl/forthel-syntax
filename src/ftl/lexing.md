@@ -60,7 +60,7 @@ the next section.
 ```
 
 ```nbnf
-<regular symbolic token> = <<Symbol>> \ { "#", ".", "_" }
+<regular symbolic token> = <<Symbol>> \ { "#", "." }
 ```
 
 ```nbnf

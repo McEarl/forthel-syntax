@@ -20,7 +20,6 @@ literature.)
 <white token> = <<Horizontal space>>
               | <<Vertical space>>
               | "$"
-              | "\""
               | "\\\\"
               | "\\["
               | "\\]"
@@ -118,12 +117,6 @@ next paragraphs.
 ```
 
 ```nbnf
-<label symbol> = <<Letter>>
-               | <<Digit>>
-               | "_"
-```
-
-```nbnf
 <argument symbol> = <alphanumeric character>
                   | <<Symbol>> \ { "%", "]" }
 ```
@@ -144,7 +137,7 @@ next paragraphs.
 ```
 
 ```nbnf
-<regular symbolic token> = <<Symbol>> \ { "%", ".", "_" }
+<regular symbolic token> = <<Symbol>> \ { "%", "." }
 ```
 
 ```nbnf
@@ -163,6 +156,11 @@ next paragraphs.
 ```nbnf
 <argument token> = <alphanumeric token>
                  | <<Symbol>> \ { "#", "]" }
+```
+
+```nbnf
+<environment name token> = <alphanumeric token>
+                         | <<Symbol>> \ { "#", "]" }
 ```
 
 

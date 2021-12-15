@@ -32,7 +32,13 @@ FTL-TeX document.
 _The following rule is adopted from [[2]](#references)._
 
 ```nbnf
-<reference> = "(" 'by' <label> { "," <label> } ")"
+<reference> = "(" 'by' <ref> { "," <ref> } ")"
+```
+
+```nbnf
+<ref> = <label>
+      | "\\ref" "{" <label> "}"
+      | "\\nameref" "{" <label> "}"
 ```
 
 ```nbnf
@@ -213,7 +219,7 @@ _The following rule is adopted from [[2]](#references)._
 ### Argument instructions
 
 ```nbnf
-<argument instruction> = <argument instr> <argument>
+<argument instruction> = <argument instr> ( "\\path" "{" <argument> "}" | <argument> )
 ```
 
 ```nbnf
@@ -324,11 +330,15 @@ a syntactic level they cannot be distinguished from other tokens.
                     | <theorem> [ <top-level proof> ]
 ```
 
+```nbnf
+<environment label> = "[" [ <label> ] "]"
+                    | [ "[" <environment name token> { <environment name token> } "]" ] "\\label" "{" <label> "}"
+```
 
 ### Axioms
 
 ```nbnf
-<axiom> = "\\begin" "{" "axiom" "}" [ "[" [ <label> ] "]" ] { <assumption> } <axiom affirmation> "\\end" "{" "axiom" "}"
+<axiom> = "\\begin" "{" "axiom" "}" [ <environment label> ] { <assumption> } <axiom affirmation> "\\end" "{" "axiom" "}"
 ```
 
 ```nbnf
@@ -339,7 +349,7 @@ a syntactic level they cannot be distinguished from other tokens.
 ### Definitions
 
 ```nbnf
-<definition> = "\\begin" "{" "definition" "}" [ "[" [ <label> ] "]" ] { <assumption> } <definition affirmation> "\\end" "{" "definition" "}"
+<definition> = "\\begin" "{" "definition" "}" [ <environment label> ] { <assumption> } <definition affirmation> "\\end" "{" "definition" "}"
 ```
 
 _The following rule is adopted from [[2]](#references)._
@@ -352,7 +362,7 @@ _The following rule is adopted from [[2]](#references)._
 ### Signature extensions
 
 ```nbnf
-<signature extension> = "\\begin" "{" "signature" "}" [ "[" [ <label> ] "]" ] { <assumption> } <signature affirmation> "\\end" "{" "signature" "}"
+<signature extension> = "\\begin" "{" "signature" "}" [ <environment label> ] { <assumption> } <signature affirmation> "\\end" "{" "signature" "}"
 ```
 
 _The following rule is adopted from [[2]](#references)._
@@ -365,7 +375,7 @@ _The following rule is adopted from [[2]](#references)._
 ### Theorems
 
 ```nbnf
-<theorem> = "\\begin" "{" "theorem" "}" [ "[" [ <label> ] "]" ] { <assumption> } <theorem affirmation> "\\end" "{" "theorem" "}"
+<theorem> = "\\begin" "{" "theorem" "}" [ <environment label> ] { <assumption> } <theorem affirmation> "\\end" "{" "theorem" "}"
           | "\\begin" "{" "proposition" "}" [ "[" [ <label> ] "]" ] { <assumption> } <theorem affirmation> "\\end" "{" "proposition" "}"
           | "\\begin" "{" "lemma" "}" [ "[" [ <label> ] "]" ] { <assumption> } <theorem affirmation> "\\end" "{" "lemma" "}"
           | "\\begin" "{" "corollary" "}" [ "[" [ <label> ] "]" ] { <assumption> } <theorem affirmation> "\\end" "{" "corollary" "}"
@@ -559,7 +569,8 @@ _The following rule is adopted from [[2]](#references)._
 ```
 
 ```nbnf
-<descriptive class term> = ( "}" | "\\}" ) <separation> ( "|" | ":" | "\\mid" ) <statement> ( "}" | "\\}" )
+<descriptive class term> = ( "{" | "\\{" ) ( <separation> | <separation in text-mode> ) ( "|" | ":" | "\\mid" ) ( <statement> | <statement in text-mode> ) ( "}" | "\\}" )
+                         | "\\class" "{" ( <separation> | <separation in text-mode> ) "|" ( <statement> | <statement in text-mode> ) "}"
 ```
 
 ```nbnf
@@ -567,13 +578,16 @@ _The following rule is adopted from [[2]](#references)._
 ```
 
 ```nbnf
-<class-of term> = ( 'class' | 'classes' ) [ <variable> ] 'of' <notion>
+<class-of term> = ( 'class' | 'classes' | 'collection' | 'collections' ) [ <variable> ] 'of' [ 'all' ] <notion>
 ```
 
 ```nbnf
 <separation> = <term>
              | <term> ( 'in' | "\\in") ( <term> | <class term> | <class-of term> )
-             | <notion>
+```
+
+```nbnf
+<separation in text-mode> = "\\text" "{" <separation> "}"
 ```
 
 
@@ -596,7 +610,7 @@ _The following rule is adopted from [[2]](#references)._
 
 ```nbnf
 <case function> = 'case' <statement> ( "-" ">" | "\\rightarrow" ) <plain function term> [ "," <case function> ]
-                | "\\begin" "{" "cases" "}" <case term> "&" <case statement> { <case term> "&" <case statement> } "\\end" "{" "cases" "}"
+                | "\\begin" "{" "cases" "}" <case term> "&" [ ":" ] <case statement> { <case term> "&" <case statement> } "\\end" "{" "cases" "}"
 ```
 
 Note that linebreaks via `\\` are ignored by Naproche, so you can (and should)
@@ -605,17 +619,15 @@ function>`
 
 ```nbnf
 <case term> = <plain function term>
-            | "\\text" "{" <plain function term> "}"
 ```
 
 ```nbnf
-<case statement> = <statement>
-                 | "\\text" "{" <statement> "}"
+<case statement> = <statement> | <statement in text-mode>
 ```
 
 ```nbnf
-<plain function term> = <choice term>
-                      | <function term>
+<plain function term> = <choice term> | <function term>
+                      | "\\text" "{" ( <choice term> | <function term> ) "}"
 ```
 
 ```nbnf
@@ -655,6 +667,10 @@ function>`
 ```nbnf
 <statement> = <headed statement>
             | <chained statement>
+```
+
+```nbnf
+<statement in text-mode> = "\\text" "{" <statement> "}"
 ```
 
 ```nbnf
@@ -786,7 +802,7 @@ function>`
 
 ```nbnf
 <atomic formula> = <symbolic relation>
-                 | "(" <statement> ")"
+                 | "(" ( <statement> | <statement in text-mode> ) ")"
 ```
 
 ```nbnf
