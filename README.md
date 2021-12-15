@@ -24,8 +24,8 @@ This package contains just source files for the syntax reference written in
 Markdown. They can easily be edited, but are not ment for being read. To convert
 them to an easily readable format follow the steps below:
 
-  1.  Download and set up the package _[nbnf][3]_. It provides a tool to convert
-      syntax references like this one from Markdown to HTML.
+  1.  Download and set up the package _[nbnf-tools][3]_. It provides a tool to
+      convert syntax references like this one from Markdown to HTML.
 
   2.  Execute the shell script `makeref.sh` from within this directory with the
       following arguments:
@@ -72,10 +72,9 @@ the appropriate file in the `contents` directory.
 
 
 
-[1]: <https://htmlpreview.github.io/>
 [2]: <https://garrettgman.github.io/rmarkdown/authoring_pandoc_markdown.html>
-[3]: <https://github.com/McEarl/nbnf>
-[4]: <https://github.com/McEarl/nbnf#readme>
+[3]: <https://github.com/McEarl/nbnf-tools>
+[4]: <https://github.com/McEarl/nbnf-tools#readme>
 [5]: <https://github.com/naproche/naproche/>
 [6]: <https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form> "Backus-Naur form"
 [7]: <https://isabelle.in.tum.de/index.html>
