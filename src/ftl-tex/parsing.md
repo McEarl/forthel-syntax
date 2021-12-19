@@ -570,7 +570,7 @@ _The following rule is adopted from [[2]](#references)._
 
 ```nbnf
 <descriptive class term> = ( "{" | "\\{" ) ( <separation> | <separation in text-mode> ) ( "|" | ":" | "\\mid" ) ( <statement> | <statement in text-mode> ) ( "}" | "\\}" )
-                         | "\\class" "{" ( <separation> | <separation in text-mode> ) "|" ( <statement> | <statement in text-mode> ) "}"
+                         | "\\class" "{" ( <separation> | <separation in text-mode> ) "|" ( <statement> | <statement in text-mode> | <statement in classtext-mode> ) "}"
 ```
 
 ```nbnf
@@ -671,6 +671,10 @@ function>`
 
 ```nbnf
 <statement in text-mode> = "\\text" "{" <statement> "}"
+```
+
+```nbnf
+<statement in classtext-mode> = "\\classtext" "{" <statement> "}"
 ```
 
 ```nbnf
