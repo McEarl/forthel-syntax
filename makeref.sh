@@ -47,7 +47,7 @@ else
     stack exec nbnf-exe -- $(readFiles $contents_dir/ftl.txt $root_dir) $out_dir/ftl.html
   elif [ "$1" == "ftl-tex" ]; then
     # Create the FTL-TeX reference from all source files listed in `contents/ftl-tex.txt`
-    stack exec nbnf-exe -- $(readFiles $contents_dir/ftl-tex.txt $root_dir) $out_dir/ftl.html
+    stack exec nbnf-exe -- $(readFiles $contents_dir/ftl-tex.txt $root_dir) $out_dir/ftl-tex.html
   else
     echo "Invalid argument. Usage:"
     echo "$0 (ftl|ftl-tex) <path/to/your/local/nbnf/repository>"
