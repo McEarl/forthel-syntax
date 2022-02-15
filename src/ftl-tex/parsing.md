@@ -283,7 +283,7 @@ _The following rule is adopted from [[2]](#references)._
 <notion pattern> = <indefinite article> <alphanumeric pattern>
 ```
 
-The usage of `<indefinite article>` is necessary to tell a variable from a
+The usage of `⟨indefinite article⟩` is necessary to tell a variable from a
 notion pattern and hence a type declaration from a notion declaration.
 
 
@@ -448,8 +448,8 @@ _The following rule is adopted from [[2]](#references)._
                       | <predicate head> 'is' [ <article> ] ( 'atom' | 'relation' )
 ```
 
-Note that in contrast to the rules before, `<predicate signature>` requires an
-`'is'` instead of an `<is>`.
+Note that in contrast to the rules before, `⟨predicate signature⟩` requires an
+`'is'` instead of an `⟨is⟩`.
 
 
 ### Notion, function and predicate heads
@@ -502,7 +502,7 @@ _The rules in this paragraph are adopted from [[2]](#references)._
                | <low-level theorem>
 ```
 
-Note that in contrast to `<proof step>` low-level definitions cannot be followed
+Note that in contrast to `⟨proof step⟩` low-level definitions cannot be followed
 by a proof.
 
 _The following rule is adopted from [[2]](#references)._
@@ -614,8 +614,8 @@ _The following rule is adopted from [[2]](#references)._
 ```
 
 Note that linebreaks via `\\` are ignored by Naproche, so you can (and should)
-use them to separate several cases if you use the second option of `<case
-function>`
+use them to separate several cases if you use the second option of `⟨case
+function⟩`
 
 ```nbnf
 <case term> = <plain function term>
