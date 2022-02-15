@@ -413,11 +413,11 @@ _The following rule is adopted from [[2]](#references)._
 ```
 
 ```nbnf
-<notion definition> = <notion head> ( "=" | <is> | <is> 'equal' 'to' ] ) [ <article> ] <class noun>
+<notion definition> = <notion head> ( "=" | <is> [ 'equal' 'to' ] ) [ <article> ] <class noun>
 ```
 
 ```nbnf
-<function definition> = <function head> ( "=" | <is> | <is> 'equal' 'to' ) [ <article> ] ( <class noun> | <plain term> )
+<function definition> = <function head> ( "=" | <is> [ 'equal' 'to' ] ) [ <article> ] ( <class noun> | <plain term> )
 ```
 
 ```nbnf
