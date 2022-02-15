@@ -1,0 +1,24 @@
+.navigation-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  position: fixed;
+}
+.navigation-bar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  height: 100%;
+  text-decoration: none;
+  border-right: 1px solid #bbb;
+}
+.navigation-bar a:hover {
+  background-color: gray;
+}
