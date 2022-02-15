@@ -1,37 +1,28 @@
-## Welcome to GitHub Pages
+---
+naproche: https://github.com/naproche/naproche
+isabelle: https://isabelle.in.tum.de
+title: The syntax of ForTheL
+layout: default
+---
 
-You can use the [editor on GitHub](https://github.com/McEarl/forthel-syntax/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/McEarl/forthel-syntax/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+<div class="home">
+  <h1 class="title">{{ page.title }}</h1>
+  <p class="description">
+    This page contains a complete reference for the syntax of ForTheL.
+    ForTheL (<b>For</b>mal <b>The</b>ory <b>L</b>anguage) is a controlled
+    natural language for writing mathematical texts.
+    It is the input language of the proof assistant
+    <a href="{{ page.naproche }}">Naproche</a> which is currently developed
+    at the University of Bonn, Germany, and since 2021 a component of the
+    <a href="{{ page.isabelle }}">Isabelle</a> prover platform.
+    ForTheL comes in two variants:
+    It has an ASCII dialect, which is the original plain text format of
+    ForTheL, and a LaTeX dialect, which is an integration of ForTheL into
+    LaTeX which allows to convert ForTheL texts easily to PDF.
+    Check out their references via the links below.
+  </p>
+  <div class="ref-links">
+    <a href="/forthel-syntax/reference/ftl.html">ForTheL's ASCII dialect</a>
+    <a href="/forthel-syntax/reference/ftl-tex.html">ForTheL's LaTeX dialect</a>
+  </div>
+</div>
