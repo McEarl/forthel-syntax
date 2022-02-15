@@ -275,7 +275,7 @@ _The following rule is adopted from [[2]](#references)._
 <notion pattern> = <indefinite article> <alphanumeric pattern>
 ```
 
-The usage of `<indefinite article>` is necessary to tell a variable from a
+The usage of `⟨indefinite article⟩` is necessary to tell a variable from a
 notion pattern and hence a type declaration from a notion declaration.
 
 
@@ -422,11 +422,11 @@ _The following rule is adopted from [[2]](#references)._
 ```
 
 ```nbnf
-<notion definition> = <notion head> ( "=" | <is> | <is> 'equal' 'to' ] ) [ <article> ] <class noun>
+<notion definition> = <notion head> ( "=" | <is> [ 'equal' 'to' ] ) [ <article> ] <class noun>
 ```
 
 ```nbnf
-<function definition> = <function head> ( "=" | <is> | <is> 'equal' 'to' ) [ <article> ] ( <class noun> | <plain term> )
+<function definition> = <function head> ( "=" | <is> [ 'equal' 'to' ] ) [ <article> ] ( <class noun> | <plain term> )
 ```
 
 ```nbnf
@@ -457,8 +457,8 @@ _The following rule is adopted from [[2]](#references)._
                       | <predicate head> 'is' [ <article> ] ( 'atom' | 'relation' )
 ```
 
-Note that in contrast to the rules before, `<predicate signature>` requires an
-`'is'` instead of an `<is>`.
+Note that in contrast to the rules before, `⟨predicate signature⟩` requires an
+`'is'` instead of an `⟨is⟩`.
 
 
 ### Notion, function and predicate heads
@@ -507,7 +507,7 @@ _The rules in this paragraph are adopted from [[2]](#references)._
                | <low-level theorem>
 ```
 
-Note that in contrast to `<proof step>` low-level definitions cannot be followed
+Note that in contrast to `⟨proof step⟩` low-level definitions cannot be followed
 by a proof.
 
 _The following rule is adopted from [[2]](#references)._
