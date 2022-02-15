@@ -6,7 +6,7 @@ ForTheL (FTL) and its LaTeX variant (FTL-TeX).
 
 ## What is ForTheL?
 
-ForTheL (**For**mal **The**ory **L**anguage) is a [controlled natural language][8]
+ForTheL (**For**mula **The**ory **L**anguage) is a [controlled natural language][8]
 for writing mathematical texts. It is the input language of the proof assistant
 [Naproche][5] which is currently developed at the University of Bonn, Germany,
 and since 2021 a component of the proof assistant [Isabelle][7]. ForTheL comes
