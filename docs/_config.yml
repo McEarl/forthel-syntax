@@ -1,1 +1,10 @@
-theme: jekyll-theme-cayman
+title: The syntax of ForTheL
+description: "A complete reference for the syntax of ForTheL"
+baseurl: "/forthel-syntax"
+url: "https://mcearl.github.io"
+twitter_username: jekyllrb
+github_username:  jekyll
+
+# Build settings
+plugins:
+  - jekyll-feed
