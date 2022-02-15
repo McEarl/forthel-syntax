@@ -23,6 +23,9 @@ literature.)
               | "\\\\"
               | "\\["
               | "\\]"
+              | "\\left"
+              | "\\middle"
+              | "\\right"
               | <comment>
 ```
 
@@ -120,6 +123,7 @@ next paragraphs.
 <argument symbol> = <alphanumeric character>
                   | <<Symbol>> \ { "%", "]" }
 ```
+
 
 ## Special tokens
 
