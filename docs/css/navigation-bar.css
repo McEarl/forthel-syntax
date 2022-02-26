@@ -7,6 +7,7 @@
   width: 100%;
   height: 50px;
   top: 0;
+  left: 0;
   position: fixed;
 }
 .navigation-bar a {
@@ -21,4 +22,9 @@
 }
 .navigation-bar a:hover {
   background-color: gray;
+}
+
+@media (max-width: 600px) {
+  .navigation-bar a {
+  }
 }
