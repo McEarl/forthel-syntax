@@ -1,6 +1,6 @@
-# License
+# Copyright
 
-This document is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Marcel Schütz, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 <!-- An SVG of the CC BY-SA license image -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="42" viewBox="0 0 120 42" baseProfile="basic" version="1.1">
