@@ -3,26 +3,15 @@
 This package contains a complete syntax reference for ForTheL, both for plain
 ForTheL (FTL) and its LaTeX variant (FTL-TeX).
 
-
-## What is ForTheL?
-
-ForTheL (**For**mula **The**ory **L**anguage) is a [controlled natural language][8]
-for writing mathematical texts. It is the input language of the proof assistant
-[Naproche][5] which is currently developed at the University of Bonn, Germany,
-and since 2021 a component of the proof assistant [Isabelle][7]. ForTheL comes
-in two variants: FTL and FTL-TeX. FTL is the original plain text format of
-ForTheL whereas FTL-TeX is an integration of ForTheL into LaTeX which allows to
-convert FTL-TeX texts easily to PDF.
-
-If you want to keep an eye on the changes of the language specification of
-ForTheL, have a look at the file [CHANGELOG.md](./CHANGELOG.md).
+Visit <https://mcearl.github.io/forthel-syntax> for more information on ForTheL
+and to access an HTML version of its syntax references.
 
 
 ## Usage
 
 This package contains just source files for the syntax reference written in
 Markdown. They can easily be edited, but are not ment for being read. To convert
-them to an easily readable format follow the steps below:
+them to HTML follow the steps below:
 
   1.  Download and set up the package _[nbnf-tools][3]_. It provides a tool to
       convert syntax references like this one from Markdown to HTML.
@@ -30,22 +19,27 @@ them to an easily readable format follow the steps below:
   2.  Execute the shell script `makeref.sh` from within this directory with the
       following arguments:
 
-      * The first argument must be either `ftl` or `ftl-tex` depending on
+      * The first argument must be either `ftl` or `ftl-tex`, depending on
         whether you want to generate the syntax reference for ForTheL's FTL or
         FTL-TeX variant.
 
       * The second argument must be the path to your local copy of the `nbnf`
         repository.
 
+      * The third argument must either be `standalone` or `jekyll`, depending on
+        whether you want to generate a standalone HTML file or an HTML file
+        which can be used within the [Jekyll][1] environment used by the GitHub
+        page of this repository.
+
       For instance the command to execute the script could look like this:
 
       ```sh
-      ./makeref.sh ftl-tex ~/github-repos/nbnf
+      ./makeref.sh ftl-tex ~/github-repos/nbnf standalone
       ```
 
   3. Then within this directory you'll find a new directory called `html` (if it
-     does not exist already) which contains a stand-alone HTML file of the
-     syntax reference.
+     does not exist already) which contains an HTML file of the syntax
+     reference.
 
 
 ## How to edit the source files
@@ -71,11 +65,9 @@ the appropriate file in the `contents` directory.
 
 
 
-
+[1]: <https://jekyllrb.com/>
 [2]: <https://garrettgman.github.io/rmarkdown/authoring_pandoc_markdown.html>
 [3]: <https://github.com/McEarl/nbnf-tools>
 [4]: <https://github.com/McEarl/nbnf-tools#readme>
 [5]: <https://github.com/naproche/naproche/>
 [6]: <https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form> "Backus-Naur form"
-[7]: <https://isabelle.in.tum.de/index.html>
-[8]: <https://en.wikipedia.org/wiki/Controlled_natural_language>
