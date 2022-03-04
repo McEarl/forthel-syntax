@@ -1,5 +1,4 @@
 ---
-title: The syntax of ForTheL
 subtitle: ForTheL’s ASCII dialect (FTL)
 author: Marcel Schütz
 date: February 2022
@@ -8,8 +7,7 @@ layout: default
 
 <div class="reference">
   <div class="header">
-    <h1>{{ page.title }}</h1>
-    <h2>{{ page.subtitle }}</h2>
+    <h1>{{ page.subtitle }}</h1>
     <p>{{ page.author }}</p>
     <p>{{ page.date }}</p>
   </div>
@@ -114,6 +112,7 @@ layout: default
     <p>Moreover, identifiers of non-terminals and alphabets are only allowed to contain the letters “a” - “z”, “A” - “Z”, the digits “0” - “9”, spaces and the characters “-” and “_“.</p>
     <h1 data-number="2" id="ftl-lexing"><span class="header-section-number">2</span> FTL lexing</h1>
     <p>This chapter describes a specification of a lexer for FTL documents. This means a parser for the grammar described in this chapter is intended to accept any arbitrary string of characters from Unicode’s <em>Basic Latin</em> code block and split it into <em>FTL lexemes</em>. (Note that we use the word <em>token</em> as a synonym for <em>lexeme</em> in the following to match the usage of the word <em>token</em> in the referenced literature.)</p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -127,7 +126,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="2.1" id="tokens"><span class="header-section-number">2.1</span> Tokens</h2>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -161,6 +162,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -174,6 +177,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -187,6 +192,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -200,8 +207,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="2.2" id="special-tokens"><span class="header-section-number">2.2</span> Special tokens</h2>
     <p>The rules in this paragraph are only needed to specify certain special tokens in the next section.</p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -215,6 +224,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -228,6 +239,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -251,6 +264,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -264,6 +279,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -277,6 +294,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -290,6 +309,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -313,6 +334,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -326,6 +349,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -339,6 +364,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -362,7 +389,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="2.3" id="alphabets"><span class="header-section-number">2.3</span> Alphabets</h2>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_alphabet_rule">
     <tr>
     <td>
@@ -396,6 +425,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_alphabet_rule">
     <tr>
     <td>
@@ -419,6 +450,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_alphabet_rule">
     <tr>
     <td>
@@ -432,6 +465,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_alphabet_rule">
     <tr>
     <td>
@@ -475,7 +510,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p>Horizontal tab or space:</p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_alphabet_rule">
     <tr>
     <td>
@@ -499,7 +536,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p>Line feed, vertical tab, form feed or carriage return:</p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_alphabet_rule">
     <tr>
     <td>
@@ -543,6 +582,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_alphabet_rule">
     <tr>
     <td>
@@ -556,7 +597,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p>Horizontal tab, space, line feed, vertical tab, form feed or carriage return:</p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_alphabet_rule">
     <tr>
     <td>
@@ -620,8 +663,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h1 data-number="3" id="ftl-parsing"><span class="header-section-number">3</span> FTL parsing</h1>
     <p>This chapter describes a specification of a parser for lexed FTL documents. This means a parser for the grammar described in this chapter is intended to accept a list of lexemes generated by a parser for the grammar described in the previous chapter and returns for instance an abstract syntax tree for such an FTL document.</p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -635,6 +680,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -668,7 +715,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="3.1" id="special-strings"><span class="header-section-number">3.1</span> Special strings</h2>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -682,6 +731,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -695,7 +746,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -709,6 +762,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -722,6 +777,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -735,6 +792,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -748,6 +807,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -761,7 +822,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="3.2" id="keywords"><span class="header-section-number">3.2</span> Keywords</h2>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -795,6 +858,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -828,6 +893,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -861,6 +928,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -884,6 +953,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -907,6 +978,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -940,6 +1013,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -963,6 +1038,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -986,6 +1063,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1039,6 +1118,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1062,6 +1143,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1085,6 +1168,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1098,7 +1183,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="3.3" id="instructions"><span class="header-section-number">3.3</span> Instructions</h2>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1112,6 +1199,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1175,7 +1264,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.3.1" id="command-instructions"><span class="header-section-number">3.3.1</span> Command instructions</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1239,7 +1330,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.3.2" id="limit-instructions"><span class="header-section-number">3.3.2</span> Limit instructions</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1253,6 +1346,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1306,6 +1401,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1319,7 +1416,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.3.3" id="flag-instructions"><span class="header-section-number">3.3.3</span> Flag instructions</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1333,6 +1432,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1586,6 +1687,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1629,7 +1732,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.3.4" id="argument-instructions"><span class="header-section-number">3.3.4</span> Argument instructions</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1643,6 +1748,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1696,6 +1803,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1709,7 +1818,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.3.5" id="synonym-instructions"><span class="header-section-number">3.3.5</span> Synonym instructions</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1723,7 +1834,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.3.6" id="drop-instructions"><span class="header-section-number">3.3.6</span> Drop instructions</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1737,7 +1850,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="3.4" id="declarations"><span class="header-section-number">3.4</span> Declarations</h2>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1781,6 +1896,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1794,6 +1911,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1807,6 +1926,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1820,6 +1941,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1833,8 +1956,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="3.5" id="patterns"><span class="header-section-number">3.5</span> Patterns</h2>
     <h3 data-number="3.5.1" id="notion-function-and-predicate-patterns"><span class="header-section-number">3.5.1</span> Notion, function and predicate patterns</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1848,7 +1973,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p>The usage of <code>⟨indefinite article⟩</code> is necessary to tell a variable from a notion pattern and hence a type declaration from a notion declaration.</p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1872,6 +1999,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1905,7 +2034,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.5.2" id="general-patterns"><span class="header-section-number">3.5.2</span> General patterns</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1919,6 +2050,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1932,6 +2065,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1945,6 +2080,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -1958,8 +2095,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p>Note that we ignore variables in the definition of (symbolic) patterns since on a syntactic level they cannot be distinguished from other tokens.</p>
     <h2 data-number="3.6" id="top-level-sections"><span class="header-section-number">3.6</span> Top-level sections</h2>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2003,8 +2142,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.6.1" id="axioms"><span class="header-section-number">3.6.1</span> Axioms</h3>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2018,7 +2159,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2032,6 +2175,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2045,8 +2190,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.6.2" id="definitions"><span class="header-section-number">3.6.2</span> Definitions</h3>
     <p><em>The rules in this paragraph are adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2060,6 +2207,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2073,6 +2222,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2086,8 +2237,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.6.3" id="signature-extensions"><span class="header-section-number">3.6.3</span> Signature extensions</h3>
     <p><em>The rules in this paragraph are adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2101,6 +2254,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2114,6 +2269,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2127,8 +2284,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.6.4" id="theorems"><span class="header-section-number">3.6.4</span> Theorems</h3>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2142,7 +2301,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2156,6 +2317,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2169,7 +2332,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="3.7" id="assumptions"><span class="header-section-number">3.7</span> Assumptions</h2>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2183,7 +2348,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2207,9 +2374,11 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="3.8" id="definition-and-notion-statements"><span class="header-section-number">3.8</span> Definition and notion statements</h2>
     <h3 data-number="3.8.1" id="definition-statements"><span class="header-section-number">3.8.1</span> Definition statements</h3>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2243,6 +2412,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2256,6 +2427,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2269,6 +2442,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2282,8 +2457,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.8.2" id="signature-statements"><span class="header-section-number">3.8.2</span> Signature statements</h3>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2317,6 +2494,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2330,6 +2509,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2343,6 +2524,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2366,9 +2549,11 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p>Note that in contrast to the rules before, <code>⟨predicate signature⟩</code> requires an <code>'is'</code> instead of an <code>⟨is⟩</code>.</p>
     <h3 data-number="3.8.3" id="notion-function-and-predicate-heads"><span class="header-section-number">3.8.3</span> Notion, function and predicate heads</h3>
     <p><em>The rules in this paragraph are adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2392,6 +2577,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2445,6 +2632,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2508,7 +2697,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="3.9" id="proofs"><span class="header-section-number">3.9</span> Proofs</h2>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2532,6 +2723,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2545,6 +2738,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2598,8 +2793,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p>Note that in contrast to <code>⟨proof step⟩</code> low-level definitions cannot be followed by a proof.</p>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2633,6 +2830,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2716,6 +2915,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2729,6 +2930,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2742,6 +2945,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2755,6 +2960,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2768,6 +2975,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2781,6 +2990,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2794,7 +3005,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="3.10" id="low-level-definitions"><span class="header-section-number">3.10</span> Low-level definitions</h2>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2818,7 +3031,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.10.1" id="class-definitions"><span class="header-section-number">3.10.1</span> Class definitions</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2832,6 +3047,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2855,6 +3072,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2868,6 +3087,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2881,6 +3102,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2894,6 +3117,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2917,7 +3142,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.10.2" id="function-definitions"><span class="header-section-number">3.10.2</span> Function definitions</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2941,6 +3168,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2964,6 +3193,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -2987,6 +3218,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3000,6 +3233,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3023,6 +3258,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3036,6 +3273,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3079,6 +3318,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3102,6 +3343,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3115,6 +3358,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3148,6 +3393,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3171,7 +3418,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="3.11" id="statements"><span class="header-section-number">3.11</span> Statements</h2>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3195,6 +3444,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3228,6 +3479,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3241,6 +3494,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3254,6 +3509,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3267,6 +3524,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3280,6 +3539,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3293,6 +3554,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3306,6 +3569,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3319,6 +3584,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3332,6 +3599,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3375,7 +3644,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.11.1" id="atomic-statements"><span class="header-section-number">3.11.1</span> Atomic statements</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3409,6 +3680,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3422,6 +3695,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3435,6 +3710,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3448,6 +3725,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3461,6 +3740,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3474,6 +3755,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3507,7 +3790,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.11.2" id="symbolic-formulas"><span class="header-section-number">3.11.2</span> Symbolic formulas</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3521,6 +3806,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3534,6 +3821,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3547,6 +3836,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3560,6 +3851,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3573,6 +3866,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3626,6 +3921,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3639,6 +3936,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3652,6 +3951,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3665,6 +3966,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3678,6 +3981,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3701,6 +4006,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3724,6 +4031,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3747,6 +4056,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3760,6 +4071,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3783,6 +4096,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3796,6 +4111,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3809,6 +4126,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3822,7 +4141,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="3.12" id="notions"><span class="header-section-number">3.12</span> Notions</h2>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3836,7 +4157,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3860,6 +4183,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3873,7 +4198,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3907,6 +4234,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3920,8 +4249,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.12.1" id="relations"><span class="header-section-number">3.12.1</span> Relations</h3>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3945,6 +4276,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3968,8 +4301,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.12.2" id="nouns"><span class="header-section-number">3.12.2</span> Nouns</h3>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3983,6 +4318,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -3996,7 +4333,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4010,6 +4349,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4023,6 +4364,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4036,6 +4379,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4049,8 +4394,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.12.3" id="attributes"><span class="header-section-number">3.12.3</span> Attributes</h3>
     <p><em>The rules defined in this paragraph are adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4074,6 +4421,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4107,8 +4456,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.12.4" id="predicates"><span class="header-section-number">3.12.4</span> Predicates</h3>
     <p><em>The rules in this paragraph are adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4142,6 +4493,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4165,6 +4518,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4218,6 +4573,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4231,7 +4588,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.12.5" id="adjectives"><span class="header-section-number">3.12.5</span> Adjectives</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4245,6 +4604,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4258,6 +4619,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4271,6 +4634,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4284,7 +4649,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.12.6" id="verbs"><span class="header-section-number">3.12.6</span> Verbs</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4298,6 +4665,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4311,8 +4680,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h2 data-number="3.13" id="terms"><span class="header-section-number">3.13</span> Terms</h2>
     <p><em>The rules in this paragraph are adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4326,6 +4697,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4359,6 +4732,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4392,6 +4767,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4415,6 +4792,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4438,6 +4817,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4471,7 +4852,9 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.13.1" id="operators"><span class="header-section-number">3.13.1</span> Operators</h3>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4485,6 +4868,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4498,6 +4883,8 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4521,8 +4908,10 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h3 data-number="3.13.2" id="plain-terms"><span class="header-section-number">3.13.2</span> Plain terms</h3>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
+    <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
@@ -4556,6 +4945,7 @@ layout: default
     </td>
     </tr>
     </table>
+    </div>
     <h1 data-number="4" id="references"><span class="header-section-number">4</span> References</h1>
     <p>This reference is based on:</p>
     <ul>

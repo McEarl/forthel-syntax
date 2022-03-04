@@ -1,9 +1,12 @@
-title: The syntax of ForTheL
-description: "A complete reference for the syntax of ForTheL"
+title: <a class="page-title" href="/forthel-syntax/">The syntax of ForTheL</a>
+description: <span></span> # To hide the description
 baseurl: "/forthel-syntax"
 url: "https://mcearl.github.io"
-twitter_username: jekyllrb
-github_username:  jekyll
+github_username:  McEarl
+remote_theme: pages-themes/cayman
+show_downloads: false
+github:
+  is_project_page: false # To hide "View on GitHub" button
 
 # Build settings
 plugins:

@@ -1,40 +1,26 @@
-.NBNF_nonterm_rule {
+/* General structure */
+
+.NBNF_rule_wrapper {
+  width: inherit;
+  overflow: auto;
+  white-space: nowrap;
   font-family: monospace;
   background-color: #444444;
   color: White;
-  border: solid 1px;
-  border-color: #444444;
-  padding: 10px;
-  margin-bottom: 20px;
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-.NBNF_nonterm_rule a:hover{
-  text-shadow: 1px 1px 2px black, 0 0 25px lightgray, 0 0 5px gray;
-}
-.NBNF_nonterm_rule td {
-  padding-right: 5px;
-  padding-left: 5px;
   border: none;
-}
-.NBNF_alphabet_rule {
-  font-family: monospace;
-  background-color: #444444;
-  color: White;
-  border: solid 1px;
-  border-color: #444444;
-  padding: 10px;
   margin-bottom: 20px;
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
 }
-.NBNF_alphabet_rule td {
-  padding-right: 5px;
-  padding-left: 5px;
+.NBNF_rule_wrapper {
+  padding: 10px;
+}
+.NBNF_rule_wrapper tr td {
   border: none;
+  padding: 3px;
 }
+
+
+/* Colors */
+
 .NBNF_nonterm_rule_lhs {
   color: #6699FF;
 }
@@ -65,9 +51,13 @@
 .NBNF_char {
   color: LightGreen;
 }
-.NBNF_operator {
-  vertical-align: super;
-}
 .NBNF_escaped {
   color: Aqua;
+}
+
+
+/* Misc */
+
+.NBNF_operator {
+  vertical-align: super;
 }

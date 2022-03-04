@@ -1,45 +1,25 @@
-.home .title {
-  text-align: center;
-  margin-top: 150px;
-}
-.home .description {
+#description {
   text-align: justify;
-  padding: 50px;
 }
-.home .ref-links {
+.link {
+  border: solid 1px;
+  display: block;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #159957;
+  border-color: #159957;
+  width: 250px;
+  height: 50px;
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  color: white;
+  font-weight: bold;
 }
-.home .ref-links a {
-  border: 1px solid;
-  display: inline;
-  text-align: center;
-  width: 50%;
-  padding: 10px;
-  margin: 5px;
-}
-.home .ref-links a:hover {
+.link:hover {
+  text-decoration: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-@media (max-width: 600px) {
-  .home .title {
-    margin-top: 50px;
-  }
-  .home .description {
-    padding: 10px;
-  }
-  .home {
-    padding: 25px;
-  }
-  .home .ref-links {
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-  .home .ref-links a {
-    display: block;
-    width: 100%;
-    margin-bottom: 20px;
-  }
+.external-link {
+  height: 1em;
+  width: auto;
+  display: inline-block;
 }

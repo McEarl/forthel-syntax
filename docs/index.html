@@ -1,28 +1,58 @@
 ---
 naproche: https://github.com/naproche/naproche
 isabelle: https://isabelle.in.tum.de
-title: The syntax of ForTheL
+
+ftl: /forthel-syntax/reference/ftl.html
+ftl-tex: /forthel-syntax/reference/ftl-tex.html
+repo: https://github.com/McEarl/forthel-syntax
+changelog: https://github.com/McEarl/forthel-syntax/blob/master/CHANGELOG.md
+
 layout: default
 ---
 
-<div class="home">
-  <h1 class="title">{{ page.title }}</h1>
-  <p class="description">
-    This page contains a complete reference for the syntax of ForTheL.
-    ForTheL (<b>For</b>mula <b>The</b>ory <b>L</b>anguage) is a controlled
-    natural language for writing mathematical texts.
-    It is the input language of the proof assistant
-    <a href="{{ page.naproche }}">Naproche</a> which is currently developed
-    at the University of Bonn, Germany, and since 2021 a component of the
-    <a href="{{ page.isabelle }}">Isabelle</a> prover platform.
-    ForTheL comes in two variants:
-    It has an ASCII dialect, which is the original plain text format of
-    ForTheL, and a LaTeX dialect, which is an integration of ForTheL into
-    LaTeX which allows to convert ForTheL texts easily to PDF.
-    Check out their references via the links below.
-  </p>
-  <div class="ref-links">
-    <a href="/forthel-syntax/reference/ftl.html">ForTheL's ASCII dialect</a>
-    <a href="/forthel-syntax/reference/ftl-tex.html">ForTheL's LaTeX dialect</a>
-  </div>
-</div>
+<h3>What is ForTheL?</h3>
+<p id="description">
+  This page contains a complete reference for the syntax of ForTheL.
+  ForTheL (<b>For</b>mula <b>The</b>ory <b>L</b>anguage) is a controlled
+  natural language for writing mathematical texts.
+  It is the input language of the proof assistant
+  <a href="{{ page.naproche }}">Naproche</a> which is currently developed
+  at the University of Bonn, Germany, and since 2021 a component of the
+  <a href="{{ page.isabelle }}">Isabelle</a> prover platform.
+  ForTheL comes in two variants:
+  It has an ASCII dialect (FTL), which is the original plain text format of
+  ForTheL, and a LaTeX dialect (FTL-TeX), which is an integration of ForTheL into
+  LaTeX which allows to convert ForTheL texts easily to PDF.
+  Check out their references via the links below.
+</p>
+
+<h3>ForTheL's ASCII dialect</h3>
+<p>
+  A complete reference of the syntax of ForTheL's ASCII dialect:
+</p>
+<a class="link" href="{{ page.ftl }}">The syntax of FTL</a>
+
+<h3>ForTheL's LaTeX dialect</h3>
+<p>
+  A complete reference of the syntax of ForTheL's LaTeX dialect can be found
+</p>
+<a class="link" href="{{ page.ftl-tex }}">The syntax of FTL-TeX</a>
+
+<h3>Repository</h3>
+<p>
+  The sources of the references, hosted on GitHub:
+</p>
+<a class="link" href="{{ page.repo }}">
+  Repository
+  <img class="external-link" src="/forthel-syntax/img/external-link.png" alt="">
+</a>
+
+<h3>Changelog</h3>
+<p>
+  A complete listing of all changes on ForTheL since the integration of Naproche
+  into Isabelle:
+</p>
+<a class="link" href="{{ page.changelog }}">
+  Changelog
+  <img class="external-link" src="/forthel-syntax/img/external-link.png" alt="">
+</a>
