@@ -610,7 +610,7 @@ _The following rule is adopted from [[2]](#references)._
 
 ```nbnf
 <case function> = 'case' <statement> ( "-" ">" | "\\rightarrow" ) <plain function term> [ "," <case function> ]
-                | "\\begin" "{" "cases" "}" <case term> "&" [ ":" ] <case statement> { <case term> "&" <case statement> } "\\end" "{" "cases" "}"
+                | "\\begin" "{" "cases" "}" <case term> "&" [ ":" ] <case statement> { <case term> "&" [ ":" ] <case statement> } "\\end" "{" "cases" "}"
 ```
 
 Note that linebreaks via `\\` are ignored by Naproche, so you can (and should)
