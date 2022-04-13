@@ -23,8 +23,8 @@ them to HTML follow the steps below:
         whether you want to generate the syntax reference for ForTheL's FTL or
         FTL-TeX variant.
 
-      * The second argument must be the path to your local copy of the `nbnf`
-        repository.
+      * The second argument must be the path to your local copy of the
+        `nbnf-tools` repository.
 
       * The third argument must either be `standalone` or `jekyll`, depending on
         whether you want to generate a standalone HTML file or an HTML file
