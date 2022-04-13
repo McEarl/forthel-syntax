@@ -9,7 +9,5 @@ This reference is based on:
     Université Paris XII - Val de Marne, Kiev National Taras Shevchenko
     University, 2007
 
-  * **[3]** The source code of [Naproche][nap]'s ForTheL parser
-
-
-[nap]: <https://github.com/naproche/naproche>
+  * **[3]** The source code of Naproche's ForTheL parser:
+    <https://github.com/naproche/naproche>
