@@ -1,14 +1,14 @@
-# FTL-TeX extraction
+# TEX extraction
 
 This chapter describes a specification of an "extractor" which extracts the
-content of `forthel` environments from an FTL-TeX document, i.e. everything
+content of `forthel` environments from a TEX document, i.e. everything
 enclosed within the tags `\begin{forthel}` and `\begin{forthel}`. This means a
 parser for the grammar described in this chapter is intended to accept any
 arbitrary string of characters from Unicode's _Basic Latin_ code block and
 returns the content of all `forthel` environments it contains.
 
 ```nbnf
-<ftl-tex document> = [ <ignored text> ] { "\\begin{forthel}" <ftl-tex text> "\\end{forthel}" [ <ignored text> ] }
+<tex document> = [ <ignored text> ] { "\\begin{forthel}" <tex text> "\\end{forthel}" [ <ignored text> ] }
 ```
 
 Text before any occurence of the string `\begin{forthel}` is intended to be

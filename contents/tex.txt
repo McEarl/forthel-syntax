@@ -1,0 +1,7 @@
+src/tex/header.md
+src/conventions.md
+src/tex/extracting.md
+src/tex/lexing.md
+src/tex/parsing.md
+src/references.md
+src/license.md

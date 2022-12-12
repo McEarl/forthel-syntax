@@ -594,13 +594,8 @@ _The following rule is adopted from [[2]](#references)._
 ### Function definitions
 
 ```nbnf
-<function definition> = 'define' <variable> "(" <function parameter> ")" "=" <function body> 'for' <function parameter> 'in' <term> "."
+<function definition> = 'define' <variable> "(" <variable> [ "," <variable> ] ")" "=" <function body> 'for' ( <variable> | "(" <variable> "," <variable> ")" ) 'in' <term> "."
                       | 'define' <variable> "=" <lambda term> "."
-```
-
-```nbnf
-<function parameter> = <variable>
-                     | "(" <variable> "," <variable> ")"
 ```
 
 ```nbnf
@@ -634,7 +629,7 @@ _The following rule is adopted from [[2]](#references)._
 ```
 
 ```nbnf
-<lambda term> = "\\" <function parameter> 'in' <lambda domain> "." <lambda body>
+<lambda term> = "\\" ( <variable> | "(" <variable> "," <variable> ")" ) 'in' <lambda domain> "." <lambda body>
 ```
 
 ```nbnf

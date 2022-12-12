@@ -6,7 +6,7 @@ For a desctiption of the _semantic_ changes on ForTheL see the
 [Naproche changelog][2].
 
 The badges ![FTL badge](./img/badge_ftl.svg) and
-![FTL-TeX badge](./img/badge_ftl-tex.svg) mark the ForTheL variants which are
+![TEX badge](./img/badge_tex.svg) mark the ForTheL variants which are
 affected by a change of the specification of ForTheL.
 
 
@@ -17,18 +17,76 @@ affected by a change of the specification of ForTheL.
 --------------------------------------------------------------------------------
 
 
+## naproche-20221024 (Isabelle 2022)
+
+* ![FTL badge](./img/badge_ftl.svg) ![version: TEX](./img/badge_tex.svg)
+
+  The old syntax `Define f((x,y)) = ...` for low-level map
+  definitions with two arguments is replaced by `Define f(x,y) = ...`.
+
+
+* ![version: TEX](./img/badge_tex.svg)
+
+  Unnumbered top-level environments are now supported via
+
+  ```
+  \begin{<environment-name>*}
+    ...
+  \end{<environment-name>*}
+  ```
+
+  where `<environment-name>` is one of the usual top-level environment names,
+  e.g. `theorem` or `definition`.
+
+
+* ![version: TEX](./img/badge_tex.svg)
+
+  In low-level definitions `choose` and `define` terms can now be
+  enclosed within ``` `` ``` and `''`, e.g.:
+
+  ```
+  Define $f(n) =$ ``choose a prime $p$ greater than $n$ in $p^{2}$'' for $n \in \Nat$.
+  ```
+
+
+* ![version: TEX](./img/badge_tex.svg)
+
+  Top-level sections can now be labeled via `\printlabel{...}` instead of
+  `\label{...}` (see the [Naproche changelog][2] for more details).
+
+
+* ![version: TEX](./img/badge_tex.svg)
+
+  To reference top-level sections you can now use `\cref` besides `\ref` and
+  `\nameref`.
+
+
+* ![version: TEX](./img/badge_tex.svg)
+
+  `\left`, `\middle` and `\right` are ignored by the lexer.
+
+
+* ![version: TEX](./img/badge_tex.svg)
+
+  A proof method for proofs of top-level theorems is now given via
+  `\begin{proof}[by <method>]` instead of `\begin{proof} Proof by <method>.`.
+
+
+* ![version: TEX](./img/badge_tex.svg)
+
+  `#` is a regular character now.
+
+
+--------------------------------------------------------------------------------
+
 ## naproche-20211211 (Isabelle 2021-1)
 
-### 2021-11-28
-
-* ![FTL badge](./img/badge_ftl.svg) ![version: FTL-TeX](./img/badge_ftl-tex.svg)
+* ![FTL badge](./img/badge_ftl.svg) ![version: TEX](./img/badge_tex.svg)
 
   `_` is a regular character now.
 
 
-### 2021-11-26
-
-* ![version: FTL-TeX](./img/badge_ftl-tex.svg)
+* ![version: TEX](./img/badge_tex.svg)
 
   Top-level sections can now be labeled with the `\label{...}` command.
   There are now four ways the header of a top-level section can look like:
@@ -60,8 +118,7 @@ affected by a change of the specification of ForTheL.
     \begin{...}
     ```
 
-
-* ![version: FTL-TeX](./img/badge_ftl-tex.svg)
+* ![version: TEX](./img/badge_tex.svg)
 
   References to named assertions now support LaTeX's `\ref{...}` and
   `\nameref{...}` commands.
@@ -70,23 +127,18 @@ affected by a change of the specification of ForTheL.
   `(by <identifier>)`.
 
 
-
-### 2021-11-25
-
-* ![version: FTL-TeX](./img/badge_ftl-tex.svg)
+* ![version: TEX](./img/badge_tex.svg)
 
   Arguments of argument instructions can be put in `\path{...}`, e.g.
   `[read \path{some/forthel/text.ftl}]`
 
 
-### 2021-11-15
-
-* ![version: FTL-TeX](./img/badge_ftl-tex.svg)
+* ![version: TEX](./img/badge_tex.svg)
 
   `"` is a regular character now.
 
 
-* ![version: FTL-TeX](./img/badge_ftl-tex.svg)
+* ![version: TEX](./img/badge_tex.svg)
 
   Expressions of the following kinds can be enclosed within `\text{...}`:
 
@@ -102,15 +154,13 @@ affected by a change of the specification of ForTheL.
     - `y \in \bigcup x \iff (\text{$y$ is contained in some element of $x$})`
 
 
-* ![version: FTL-TeX](./img/badge_ftl-tex.svg)
+* ![version: TEX](./img/badge_tex.svg)
 
   You can use `\class{... | ...}` as an alternative to `\{ ... \mid ... \}` for
   writing class terms.
 
 
-### 2021-10-26
-
-* ![FTL badge](./img/badge_ftl.svg) ![version: FTL-TeX](./img/badge_ftl-tex.svg)
+* ![FTL badge](./img/badge_ftl.svg) ![version: TEX](./img/badge_tex.svg)
 
   `the collection of` is a new alternative to the expression `the class of`.
   Moreover, both of them can be followed by an optional `all`.
@@ -122,15 +172,13 @@ affected by a change of the specification of ForTheL.
     - `the class of all sets x such that x is not an element of x`
 
 
-* ![FTL badge](./img/badge_ftl.svg) ![version: FTL-TeX](./img/badge_ftl-tex.svg)
+* ![FTL badge](./img/badge_ftl.svg) ![version: TEX](./img/badge_tex.svg)
 
   Notion separation in descriptive class terms (e.g. something like
   `{set x | ...}`) is no longer supported.
 
 
-### 2021-03-24
-
-* ![version: FTL-TeX](./img/badge_ftl-tex.svg)
+* ![version: TEX](./img/badge_tex.svg)
 
   `\[` and `\]` are a new kind of whitetokens, i.e. they are completely ignored
   by Naproche.

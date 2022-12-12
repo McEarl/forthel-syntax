@@ -1,7 +1,7 @@
 # The syntax of ForTheL
 
-This package contains a complete syntax reference for ForTheL, both for plain
-ForTheL (FTL) and its LaTeX variant (FTL-TeX).
+This package contains a complete syntax reference for ForTheL, both for its FTL
+and its TEX dialect.
 
 Visit <https://mcearl.github.io/forthel-syntax> for more information on ForTheL
 and to access an HTML version of its syntax references.
@@ -19,9 +19,9 @@ them to HTML follow the steps below:
   2.  Execute the shell script `makeref.sh` from within this directory with the
       following arguments:
 
-      * The first argument must be either `ftl` or `ftl-tex`, depending on
+      * The first argument must be either `ftl` or `tex`, depending on
         whether you want to generate the syntax reference for ForTheL's FTL or
-        FTL-TeX variant.
+        TEX dialect.
 
       * The second argument must be the path to your local copy of the
         `nbnf-tools` repository.
@@ -34,7 +34,7 @@ them to HTML follow the steps below:
       For instance the command to execute the script could look like this:
 
       ```sh
-      ./makeref.sh ftl-tex ~/github-repos/nbnf standalone
+      ./makeref.sh tex ~/github-repos/nbnf-tools standalone
       ```
 
   3. Then within this directory you'll find a new directory called `html` (if it
@@ -45,10 +45,11 @@ them to HTML follow the steps below:
 ## How to edit the source files
 
 To edit the source files of this reference, have a look at the directory `src`.
-There you'll find two subdirectories `ftl` and `ftl-tex`, each containing the
-sources for the syntax references of FTL and FTL-TeX, respectively, written in
-[Pandoc Markdown][2]. Moreover in the `src` directory there are some files which
-are part of the source of the reference of both FTL and FTL-TeX.
+There you'll find two subdirectories `ftl` and `tex`, each containing the
+sources for the syntax references of the FTL and TEX dialect, respectively,
+written in [Pandoc Markdown][2]. Moreover in the `src` directory there are some
+files which are part of the source of the reference of both the FTL and TEX
+dialect.
 
 Within each of the mentioned subdirectories you'll find a file called
 `header.md`. It contains information like title and author of the reference.

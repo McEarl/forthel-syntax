@@ -1,7 +1,7 @@
 ---
-subtitle: ForTheL’s LaTeX dialect (FTL-TeX)
+subtitle: ForTheL’s TEX dialect
 author: Marcel Schütz
-date: February 2022
+date: December 2022
 layout: default
 ---
 
@@ -15,15 +15,15 @@ layout: default
   <nav class="toc">
     <ul>
     <li><a href="#conventions"><span class="toc-section-number">1</span> Conventions</a></li>
-    <li><a href="#ftl-tex-extraction"><span class="toc-section-number">2</span> FTL-TeX extraction</a></li>
-    <li><a href="#ftl-tex-tokenizing"><span class="toc-section-number">3</span> FTL-TeX tokenizing</a>
+    <li><a href="#tex-extraction"><span class="toc-section-number">2</span> TEX extraction</a></li>
+    <li><a href="#tex-lexing"><span class="toc-section-number">3</span> TEX lexing</a>
     <ul>
     <li><a href="#tokens"><span class="toc-section-number">3.1</span> Tokens</a></li>
     <li><a href="#special-symbols"><span class="toc-section-number">3.2</span> Special symbols</a></li>
     <li><a href="#special-tokens"><span class="toc-section-number">3.3</span> Special tokens</a></li>
     <li><a href="#alphabets"><span class="toc-section-number">3.4</span> Alphabets</a></li>
     </ul></li>
-    <li><a href="#ftl-tex-parsing"><span class="toc-section-number">4</span> FTL-TeX parsing</a>
+    <li><a href="#tex-parsing"><span class="toc-section-number">4</span> TEX parsing</a>
     <ul>
     <li><a href="#special-strings"><span class="toc-section-number">4.1</span> Special strings</a></li>
     <li><a href="#keywords"><span class="toc-section-number">4.2</span> Keywords</a></li>
@@ -112,19 +112,19 @@ layout: default
     <p>To avoid parentheses, we assume that choice has a lower precedence than concatenation.</p>
     <p>Within a string the following characters have to be escaped by prepending a backslash to them: <code>\</code>, <code>"</code>, <code>'</code>. Any special characters can be represented by the pattern <code>\U+XXXX;</code>, where <code>XXXX</code> is its hexadecimal Unicode code point.</p>
     <p>Moreover, identifiers of non-terminals and alphabets are only allowed to contain the letters “a” - “z”, “A” - “Z”, the digits “0” - “9”, spaces and the characters “-” and “_“.</p>
-    <h1 data-number="2" id="ftl-tex-extraction"><span class="header-section-number">2</span> FTL-TeX extraction</h1>
-    <p>This chapter describes a specification of an “extractor” which extracts the content of <code>forthel</code> environments from an FTL-TeX document, i.e. everything enclosed within the tags <code>\begin{forthel}</code> and <code>\begin{forthel}</code>. This means a parser for the grammar described in this chapter is intended to accept any arbitrary string of characters from Unicode’s <em>Basic Latin</em> code block and returns the content of all <code>forthel</code> environments it contains.</p>
+    <h1 data-number="2" id="tex-extraction"><span class="header-section-number">2</span> TEX extraction</h1>
+    <p>This chapter describes a specification of an “extractor” which extracts the content of <code>forthel</code> environments from a TEX document, i.e. everything enclosed within the tags <code>\begin{forthel}</code> and <code>\begin{forthel}</code>. This means a parser for the grammar described in this chapter is intended to accept any arbitrary string of characters from Unicode’s <em>Basic Latin</em> code block and returns the content of all <code>forthel</code> environments it contains.</p>
     <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
-    <span id="NBNF_NONTERMINAL_ftl-tex_document" class="NBNF_nonterm_rule_lhs">⟨ftl-tex document⟩</span>
+    <span id="NBNF_NONTERMINAL_tex_document" class="NBNF_nonterm_rule_lhs">⟨tex document⟩</span>
     </td>
     <td>
     =
     </td>
     <td>
-    <span class="NBNF_sequence"><span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_ignored_text">⟨ignored text⟩</a></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin{forthel}”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_ftl-tex_text">⟨ftl-tex text⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>end{forthel}”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_ignored_text">⟨ignored text⟩</a></span> ]</span></span> }</span></span>
+    <span class="NBNF_sequence"><span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_ignored_text">⟨ignored text⟩</a></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin{forthel}”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_tex_text">⟨tex text⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>end{forthel}”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_ignored_text">⟨ignored text⟩</a></span> ]</span></span> }</span></span>
     </td>
     </tr>
     </table>
@@ -486,13 +486,13 @@ layout: default
     </tr>
     </table>
     </div>
-    <h1 data-number="3" id="ftl-tex-tokenizing"><span class="header-section-number">3</span> FTL-TeX tokenizing</h1>
-    <p>This chapter describes a specification of a lexer for the content of <code>forthel</code> environments within an FTL-TeX document. This means a parser for the grammar described in this chapter is intended to accept any arbitrary string of characters from Unicode’s <em>Basic Latin</em> code block and split it into <em>FTL-TeX lexemes</em>. (Note that we use the word <em>token</em> as a synonym for <em>lexeme</em> in the following to match the usage of the word <em>token</em> in the referenced literature.)</p>
+    <h1 data-number="3" id="tex-lexing"><span class="header-section-number">3</span> TEX lexing</h1>
+    <p>This chapter describes a specification of a lexer for the content of <code>forthel</code> environments within a TEX document. This means a parser for the grammar described in this chapter is intended to accept any arbitrary string of characters from Unicode’s <em>Basic Latin</em> code block and split it into <em>TEX lexemes</em>. (Note that we use the word <em>token</em> as a synonym for <em>lexeme</em> in the following to match the usage of the word <em>token</em> in the referenced literature.)</p>
     <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
-    <span id="NBNF_NONTERMINAL_ftl-tex_tokens" class="NBNF_nonterm_rule_lhs">⟨ftl-tex tokens⟩</span>
+    <span id="NBNF_NONTERMINAL_tex_tokens" class="NBNF_nonterm_rule_lhs">⟨tex tokens⟩</span>
     </td>
     <td>
     =
@@ -664,7 +664,7 @@ layout: default
     =
     </td>
     <td>
-    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>”</span></span> ( <span class="NBNF_choice"><span class="NBNF_sequence"><span class="NBNF_alphabet"><a href="#NBNF_ALPHABET_Alphanum">⟪Alphanum⟫</a></span> <span class="NBNF_repetition">{ <span class="NBNF_alphabet"><a href="#NBNF_ALPHABET_Alphanum">⟪Alphanum⟫</a></span> }</span></span> | <span class="NBNF_char_exception"><span class="NBNF_alphabet"><a href="#NBNF_ALPHABET_Symbol">⟪Symbol⟫</a></span> \ {<span class="NBNF_char_list"><span class="NBNF_case_sensitive_char">“<span class="NBNF_escaped">\\</span>”</span>, <span class="NBNF_case_sensitive_char">“[”</span>, <span class="NBNF_case_sensitive_char">“]”</span></span>}</span></span> )</span>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>”</span></span> ( <span class="NBNF_choice"><span class="NBNF_string_exception"><span class="NBNF_alphabet"><a href="#NBNF_ALPHABET_Alphanum">⟪Alphanum⟫</a></span><span class="NBNF_operator">+</span> \ {<span class="NBNF_string_list"><span class="NBNF_case_sensitive_string">“left”</span>, <span class="NBNF_case_sensitive_string">“middle”</span>, <span class="NBNF_case_sensitive_string">“right”</span></span>}</span> | <span class="NBNF_char_exception"><span class="NBNF_alphabet"><a href="#NBNF_ALPHABET_Symbol">⟪Symbol⟫</a></span> \ {<span class="NBNF_char_list"><span class="NBNF_case_sensitive_char">“<span class="NBNF_escaped">\\</span>”</span>, <span class="NBNF_case_sensitive_char">“[”</span>, <span class="NBNF_case_sensitive_char">“]”</span></span>}</span></span> )</span>
     </td>
     </tr>
     </table>
@@ -1372,7 +1372,7 @@ layout: default
     |
     </td>
     <td>
-    <span class="NBNF_char_exception"><span class="NBNF_alphabet"><a href="#NBNF_ALPHABET_Symbol">⟪Symbol⟫</a></span> \ {<span class="NBNF_char_list"><span class="NBNF_case_sensitive_char">“#”</span>, <span class="NBNF_case_sensitive_char">“]”</span></span>}</span>
+    <span class="NBNF_char_exception"><span class="NBNF_alphabet"><a href="#NBNF_ALPHABET_Symbol">⟪Symbol⟫</a></span> \ {<span class="NBNF_char_list"><span class="NBNF_case_sensitive_char">“%”</span>, <span class="NBNF_case_sensitive_char">“]”</span></span>}</span>
     </td>
     </tr>
     </table>
@@ -1397,7 +1397,7 @@ layout: default
     |
     </td>
     <td>
-    <span class="NBNF_char_exception"><span class="NBNF_alphabet"><a href="#NBNF_ALPHABET_Symbol">⟪Symbol⟫</a></span> \ {<span class="NBNF_char_list"><span class="NBNF_case_sensitive_char">“#”</span>, <span class="NBNF_case_sensitive_char">“]”</span></span>}</span>
+    <span class="NBNF_char_exception"><span class="NBNF_alphabet"><a href="#NBNF_ALPHABET_Symbol">⟪Symbol⟫</a></span> \ {<span class="NBNF_char_list"><span class="NBNF_case_sensitive_char">“%”</span>, <span class="NBNF_case_sensitive_char">“]”</span></span>}</span>
     </td>
     </tr>
     </table>
@@ -1610,13 +1610,13 @@ layout: default
     </tr>
     </table>
     </div>
-    <h1 data-number="4" id="ftl-tex-parsing"><span class="header-section-number">4</span> FTL-TeX parsing</h1>
-    <p>This chapter describes a specification of a parser for lexed FTL-TeX documents. This means a parser for the grammar described in this chapter is intended to accept a list of lexemes generated by a parser for the grammar described in the previous chapter and returns for instance an abstract syntax tree for such an FTL-TeX document.</p>
+    <h1 data-number="4" id="tex-parsing"><span class="header-section-number">4</span> TEX parsing</h1>
+    <p>This chapter describes a specification of a parser for lexed TEX documents. This means a parser for the grammar described in this chapter is intended to accept a list of lexemes generated by a parser for the grammar described in the previous chapter and returns for instance an abstract syntax tree for such an FTL-TeX document.</p>
     <div class="NBNF_rule_wrapper">
     <table class="NBNF_nonterm_rule">
     <tr>
     <td>
-    <span id="NBNF_NONTERMINAL_ftl-tex_text" class="NBNF_nonterm_rule_lhs">⟨ftl-tex text⟩</span>
+    <span id="NBNF_NONTERMINAL_tex_text" class="NBNF_nonterm_rule_lhs">⟨tex text⟩</span>
     </td>
     <td>
     =
@@ -1730,17 +1730,7 @@ layout: default
     |
     </td>
     <td>
-    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>ref”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_label">⟨label⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
-    </td>
-    </tr>
-    <tr>
-    <td>
-    </td>
-    <td>
-    |
-    </td>
-    <td>
-    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>nameref”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_label">⟨label⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
+    <span class="NBNF_sequence">( <span class="NBNF_choice"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>ref”</span></span> | <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>nameref”</span></span> | <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>cref”</span></span></span> ) <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_label">⟨label⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
     </td>
     </tr>
     </table>
@@ -3155,7 +3145,7 @@ layout: default
     |
     </td>
     <td>
-    <span class="NBNF_sequence"><span class="NBNF_option">[ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“[”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_environment_name_token">⟨environment name token⟩</a></span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_environment_name_token">⟨environment name token⟩</a></span> }</span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“]”</span></span></span> ]</span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>label”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_label">⟨label⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
+    <span class="NBNF_sequence"><span class="NBNF_option">[ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“[”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_environment_name_token">⟨environment name token⟩</a></span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_environment_name_token">⟨environment name token⟩</a></span> }</span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“]”</span></span></span> ]</span> ( <span class="NBNF_choice"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>label”</span></span> | <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>printlabel”</span></span></span> ) <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_label">⟨label⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
     </td>
     </tr>
     </table>
@@ -3172,6 +3162,16 @@ layout: default
     </td>
     <td>
     <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“axiom”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_environment_label">⟨environment label⟩</a></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_assumption">⟨assumption⟩</a></span> }</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_axiom_affirmation">⟨axiom affirmation⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“axiom”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    </td>
+    <td>
+    |
+    </td>
+    <td>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“axiom”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”}”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_environment_label">⟨environment label⟩</a></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_assumption">⟨assumption⟩</a></span> }</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_axiom_affirmation">⟨axiom affirmation⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”axiom”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”</em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
     </td>
     </tr>
     </table>
@@ -3205,6 +3205,16 @@ layout: default
     <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“definition”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_environment_label">⟨environment label⟩</a></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_assumption">⟨assumption⟩</a></span> }</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_definition_affirmation">⟨definition affirmation⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“definition”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
     </td>
     </tr>
+    <tr>
+    <td>
+    </td>
+    <td>
+    |
+    </td>
+    <td>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“definition”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”}”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_environment_label">⟨environment label⟩</a></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_assumption">⟨assumption⟩</a></span> }</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_definition_affirmation">⟨definition affirmation⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”definition”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”</em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
+    </td>
+    </tr>
     </table>
     </div>
     <p><em>The following rule is adopted from <a href="#references">[2]</a>.</em></p>
@@ -3235,6 +3245,16 @@ layout: default
     </td>
     <td>
     <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“signature”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_environment_label">⟨environment label⟩</a></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_assumption">⟨assumption⟩</a></span> }</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_signature_affirmation">⟨signature affirmation⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“signature”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    </td>
+    <td>
+    |
+    </td>
+    <td>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“signature”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”}”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_environment_label">⟨environment label⟩</a></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_assumption">⟨assumption⟩</a></span> }</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_signature_affirmation">⟨signature affirmation⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”signature”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”</em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
     </td>
     </tr>
     </table>
@@ -3276,7 +3296,27 @@ layout: default
     |
     </td>
     <td>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“theorem”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”}”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_environment_label">⟨environment label⟩</a></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_assumption">⟨assumption⟩</a></span> }</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_theorem_affirmation">⟨theorem affirmation⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”theorem”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”</em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    </td>
+    <td>
+    |
+    </td>
+    <td>
     <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“proposition”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span> <span class="NBNF_option">[ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“[”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_label">⟨label⟩</a></span> ]</span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“]”</span></span></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_assumption">⟨assumption⟩</a></span> }</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_theorem_affirmation">⟨theorem affirmation⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“proposition”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    </td>
+    <td>
+    |
+    </td>
+    <td>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“proposition”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”}”</span></span> <span class="NBNF_option">[ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”[”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_label">⟨label⟩</a></span> ]</span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”]”</span></span></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_assumption">⟨assumption⟩</a></span> }</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_theorem_affirmation">⟨theorem affirmation⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”proposition”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”</em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
     </td>
     </tr>
     <tr>
@@ -3296,7 +3336,27 @@ layout: default
     |
     </td>
     <td>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“lemma”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”}”</span></span> <span class="NBNF_option">[ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”[”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_label">⟨label⟩</a></span> ]</span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”]”</span></span></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_assumption">⟨assumption⟩</a></span> }</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_theorem_affirmation">⟨theorem affirmation⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”lemma”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”</em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    </td>
+    <td>
+    |
+    </td>
+    <td>
     <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“corollary”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span> <span class="NBNF_option">[ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“[”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_label">⟨label⟩</a></span> ]</span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“]”</span></span></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_assumption">⟨assumption⟩</a></span> }</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_theorem_affirmation">⟨theorem affirmation⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“corollary”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    </td>
+    <td>
+    |
+    </td>
+    <td>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“corollary”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”}”</span></span> <span class="NBNF_option">[ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”[”</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_label">⟨label⟩</a></span> ]</span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”]”</span></span></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_assumption">⟨assumption⟩</a></span> }</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_theorem_affirmation">⟨theorem affirmation⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”corollary”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">”</em>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
     </td>
     </tr>
     </table>
@@ -3692,7 +3752,7 @@ layout: default
     =
     </td>
     <td>
-    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“proof”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span> <span class="NBNF_option">[ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘proof’</span></span> <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘by’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_method">⟨method⟩</a></span></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_proof_step">⟨proof step⟩</a></span> }</span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“proof”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>begin”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“proof”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span> <span class="NBNF_option">[ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“[”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘by’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_method">⟨method⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“]”</span></span></span> ]</span> <span class="NBNF_repetition">{ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_proof_step">⟨proof step⟩</a></span> }</span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>end”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“{”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“proof”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“}”</span></span></span>
     </td>
     </tr>
     </table>
@@ -4177,7 +4237,7 @@ layout: default
     =
     </td>
     <td>
-    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘define’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“(”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_function_parameter">⟨function parameter⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“)”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“=”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_function_body">⟨function body⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘for’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_function_parameter">⟨function parameter⟩</a></span> ( <span class="NBNF_choice"><span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘in’</span></span> | <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>in”</span></span></span> ) <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_term">⟨term⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“.”</span></span></span>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘define’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“(”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_option">[ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“,”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span></span> ]</span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“)”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“=”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_function_body">⟨function body⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘for’</span></span> ( <span class="NBNF_choice"><span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> | <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“(”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“,”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“)”</span></span></span></span> ) ( <span class="NBNF_choice"><span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘in’</span></span> | <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>in”</span></span></span> ) <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_term">⟨term⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“.”</span></span></span>
     </td>
     </tr>
     <tr>
@@ -4343,7 +4403,7 @@ layout: default
     =
     </td>
     <td>
-    <span class="NBNF_sequence"><span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_low-level-def_choice">⟨low-level-def choice⟩</a></span> <span class="NBNF_repetition">{ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“,”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_low-level-def_choice">⟨low-level-def choice⟩</a></span></span> }</span> ( <span class="NBNF_choice"><span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘in’</span></span> | <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>in”</span></span></span> ) <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_function_term">⟨function term⟩</a></span></span>
+    <span class="NBNF_sequence"><span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_low-level-def_choice">⟨low-level-def choice⟩</a></span> <span class="NBNF_repetition">{ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“,”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_low-level-def_choice">⟨low-level-def choice⟩</a></span></span> }</span> <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘in’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_function_term">⟨function term⟩</a></span></span>
     </td>
     </tr>
     </table>
@@ -4413,7 +4473,27 @@ layout: default
     |
     </td>
     <td>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<code>"&lt;/span&gt;&lt;/span&gt; &lt;span class="NBNF_terminal"&gt;&lt;span class="NBNF_case_sensitive_string"&gt;"</code>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘choose’</span></span> <span class="NBNF_option">[ <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_article">⟨article⟩</a></span> ]</span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_notion">⟨notion⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\’</span>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\’</span>”</span></span></span>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    </td>
+    <td>
+    |
+    </td>
+    <td>
     <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘define’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“=”</span></span> ( <span class="NBNF_choice"><span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_class_term">⟨class term⟩</a></span> | <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_class-of_term">⟨class-of term⟩</a></span> | <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_lambda_term">⟨lambda term⟩</a></span></span> )</span>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    </td>
+    <td>
+    |
+    </td>
+    <td>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<code>"&lt;/span&gt;&lt;/span&gt; &lt;span class="NBNF_terminal"&gt;&lt;span class="NBNF_case_sensitive_string"&gt;"</code>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘define’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“=”</span></span> ( <span class="NBNF_choice"><span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_class_term">⟨class term⟩</a></span> | <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_class-of_term">⟨class-of term⟩</a></span> | <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_lambda_term">⟨lambda term⟩</a></span></span> ) <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\’</span>”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\’</span>”</span></span></span>
     </td>
     </tr>
     </table>
@@ -4428,7 +4508,7 @@ layout: default
     =
     </td>
     <td>
-    <span class="NBNF_sequence">( <span class="NBNF_choice"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>”</span></span> | <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>fun”</span></span></span> ) <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_function_parameter">⟨function parameter⟩</a></span> ( <span class="NBNF_choice"><span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘in’</span></span> | <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>in”</span></span></span> ) <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_lambda_domain">⟨lambda domain⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“.”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_lambda_body">⟨lambda body⟩</a></span></span>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>fun”</span></span> ( <span class="NBNF_choice"><span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> | <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“(”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“,”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“)”</span></span></span></span> ) <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>in”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_lambda_domain">⟨lambda domain⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“.”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_lambda_body">⟨lambda body⟩</a></span></span>
     </td>
     </tr>
     </table>

@@ -1,16 +1,16 @@
-# FTL-TeX tokenizing
+# TEX lexing
 
 This chapter describes a specification of a lexer for the content of `forthel`
-environments within an FTL-TeX document. This means a parser for the grammar
+environments within a TEX document. This means a parser for the grammar
 described in this chapter is intended to accept any arbitrary string of
 characters from Unicode's _Basic Latin_ code block and split it into
-_FTL-TeX lexemes_. (Note that we use the word _token_ as a synonym for _lexeme_
+_TEX lexemes_. (Note that we use the word _token_ as a synonym for _lexeme_
 in the following to match the usage of the word _token_ in the referenced
 literature.)
 
 
 ```nbnf
-<ftl-tex tokens> = { <alphanumeric token> | <symbolic token> | <backslashed token> | <white token> }
+<tex tokens> = { <alphanumeric token> | <symbolic token> | <backslashed token> | <white token> }
 ```
 
 
@@ -42,7 +42,7 @@ literature.)
 ```
 
 ```nbnf
-<backslashed token> = "\\" ( <<Alphanum>> { <<Alphanum>> } | <<Symbol>> \ { "\\", "[", "]" } )
+<backslashed token> = "\\" ( <<Alphanum>>+ \ { "left", "middle", "right" } | <<Symbol>> \ { "\\", "[", "]" } )
 ```
 
 The following rules are only needed to specify certain special tokens in the
@@ -159,12 +159,12 @@ next paragraphs.
 
 ```nbnf
 <argument token> = <alphanumeric token>
-                 | <<Symbol>> \ { "#", "]" }
+                 | <<Symbol>> \ { "%", "]" }
 ```
 
 ```nbnf
 <environment name token> = <alphanumeric token>
-                         | <<Symbol>> \ { "#", "]" }
+                         | <<Symbol>> \ { "%", "]" }
 ```
 
 

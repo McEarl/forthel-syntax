@@ -1,7 +1,7 @@
 ---
-subtitle: ForTheL’s ASCII dialect (FTL)
+subtitle: ForTheL’s FTL dialect
 author: Marcel Schütz
-date: February 2022
+date: December 2022
 layout: default
 ---
 
@@ -3154,7 +3154,7 @@ layout: default
     =
     </td>
     <td>
-    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘define’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“(”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_function_parameter">⟨function parameter⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“)”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“=”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_function_body">⟨function body⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘for’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_function_parameter">⟨function parameter⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘in’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_term">⟨term⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“.”</span></span></span>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘define’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“(”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_option">[ <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“,”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span></span> ]</span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“)”</span></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“=”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_function_body">⟨function body⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘for’</span></span> ( <span class="NBNF_choice"><span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> | <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“(”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“,”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“)”</span></span></span></span> ) <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘in’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_term">⟨term⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“.”</span></span></span>
     </td>
     </tr>
     <tr>
@@ -3165,31 +3165,6 @@ layout: default
     </td>
     <td>
     <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘define’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“=”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_lambda_term">⟨lambda term⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“.”</span></span></span>
-    </td>
-    </tr>
-    </table>
-    </div>
-    <div class="NBNF_rule_wrapper">
-    <table class="NBNF_nonterm_rule">
-    <tr>
-    <td>
-    <span id="NBNF_NONTERMINAL_function_parameter" class="NBNF_nonterm_rule_lhs">⟨function parameter⟩</span>
-    </td>
-    <td>
-    =
-    </td>
-    <td>
-    <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span>
-    </td>
-    </tr>
-    <tr>
-    <td>
-    </td>
-    <td>
-    |
-    </td>
-    <td>
-    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“(”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“,”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“)”</span></span></span>
     </td>
     </tr>
     </table>
@@ -3354,7 +3329,7 @@ layout: default
     =
     </td>
     <td>
-    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_function_parameter">⟨function parameter⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘in’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_lambda_domain">⟨lambda domain⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“.”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_lambda_body">⟨lambda body⟩</a></span></span>
+    <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“<span class="NBNF_escaped">\\</span>”</span></span> ( <span class="NBNF_choice"><span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> | <span class="NBNF_sequence"><span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“(”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“,”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_variable">⟨variable⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“)”</span></span></span></span> ) <span class="NBNF_terminal"><span class="NBNF_case_insensitive_string">‘in’</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_lambda_domain">⟨lambda domain⟩</a></span> <span class="NBNF_terminal"><span class="NBNF_case_sensitive_string">“.”</span></span> <span class="NBNF_non_terminal"><a href="#NBNF_NONTERMINAL_lambda_body">⟨lambda body⟩</a></span></span>
     </td>
     </tr>
     </table>

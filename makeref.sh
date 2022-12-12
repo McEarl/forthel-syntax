@@ -14,7 +14,7 @@ function readFiles() {
 
 if [ "$#" != 3 ] ; then
   echo "Invalid number of arguments. Usage:"
-  echo "$0 (ftl|ftl-tex) <path/to/your/local/nbnf/repository> (standalone|jekyll)"
+  echo "$0 (ftl|tex) <path/to/your/local/nbnf/repository> (standalone|jekyll)"
   exit 1
 else
   #statements
@@ -47,17 +47,17 @@ else
     if [ "$1" == "ftl" ]; then
       # Create the FTL reference from all source files listed in `contents/ftl.txt`
       stack exec nbnf-exe -- $(readFiles ${contents_dir}/ftl.txt $root_dir) -o $out_dir/${1}_${3}.html -h ${3}
-    elif [ "$1" == "ftl-tex" ]; then
-      # Create the FTL-TeX reference from all source files listed in `contents/ftl-tex.txt`
-      stack exec nbnf-exe -- $(readFiles $contents_dir/ftl-tex.txt $root_dir) -o $out_dir/${1}_${3}.html -h ${3}
+    elif [ "$1" == "tex" ]; then
+      # Create the TEX reference from all source files listed in `contents/tex.txt`
+      stack exec nbnf-exe -- $(readFiles $contents_dir/tex.txt $root_dir) -o $out_dir/${1}_${3}.html -h ${3}
     else
       echo "Invalid argument. Usage:"
-      echo "$0 (ftl|ftl-tex) <path/to/your/local/nbnf/repository> (standalone|jekyll)"
+      echo "$0 (ftl|tex) <path/to/your/local/nbnf/repository> (standalone|jekyll)"
       exit 3
     fi
   else
     echo "Invalid argument. Usage:"
-    echo "$0 (ftl|ftl-tex) <path/to/your/local/nbnf/repository> (standalone|jekyll)"
+    echo "$0 (ftl|tex) <path/to/your/local/nbnf/repository> (standalone|jekyll)"
     exit 3
   fi
 fi
